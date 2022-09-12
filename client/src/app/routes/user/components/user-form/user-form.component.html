@@ -1,0 +1,180 @@
+<mat-card>
+    <mat-card-content>
+        <div class="header">
+            <h2>{{title}}</h2>
+        </div>
+        <form (ngSubmit)="onSubmit()" name="incubationForm" [formGroup]="incubationForm">
+               
+                   
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Name</mat-label>
+                            <input formControlName="name" matInput placeholder="Enter your name" required />
+                            <mat-error *ngIf="!incubationForm.controls['name'].valid">
+                                Name is required
+                              </mat-error>
+                        </mat-form-field>
+                    
+               
+                   
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Address</mat-label>
+                            <textarea formControlName="address" matInput placeholder="Enter your address" required
+                                matInput></textarea>
+                                <mat-error *ngIf="!incubationForm.controls['address'].valid">
+                                    Address is required
+                                  </mat-error>
+                        </mat-form-field>
+                    
+               
+                   
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>City</mat-label>
+                            <input formControlName="city" matInput placeholder="Enter your city name" required />
+                            <mat-error *ngIf="!incubationForm.controls['city'].valid">
+                                City is required
+                              </mat-error>
+                        </mat-form-field>
+                   
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>State</mat-label>
+                            <mat-select formControlName="state">
+                                <mat-option *ngFor="let state of states" [value]="state">
+                                    {{state}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="!incubationForm.controls['state'].valid">
+                                State is required
+                              </mat-error>
+                        </mat-form-field>
+                   
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input formControlName="email" matInput placeholder="Enter your email" required />
+                            <mat-error *ngIf="!incubationForm.controls['email'].valid">
+                                Email is required
+                              </mat-error>
+                        </mat-form-field>
+                  
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Phone no</mat-label>
+                            <input formControlName="phone" type="number" matInput placeholder="Enter your phone number" required />
+                            <mat-error *ngIf="!incubationForm.controls['phone'].valid">
+                                Phone no is required
+                              </mat-error>
+                        </mat-form-field>
+                 
+                        <mat-form-field class="full-width f-left" appearance="outline">
+                            <mat-label>Company Name</mat-label>
+                            <input formControlName="companyName" matInput placeholder="Enter your company name"
+                                required />
+                                <mat-error *ngIf="!incubationForm.controls['companyName'].valid">
+                                    Company Name is required
+                                  </mat-error>
+                        </mat-form-field>
+                    
+            
+
+               
+                
+<!--                
+                    <div appearance="outline">
+                        <input type="file" class="form-control" name="file">
+                    </div> -->
+
+            <div>
+                <mat-form-field class="input-width" appearance="outline">
+                    <mat-label>Describe Your Team and Background</mat-label>
+                    <textarea formControlName="teamBackground" matInput placeholder="Enter Your Team and Background"
+                        required matInput></textarea>
+                        <mat-error *ngIf="!incubationForm.controls['teamBackground'].valid">
+                            fill the field
+                          </mat-error>
+                </mat-form-field>
+    
+                <mat-form-field class="input-width" appearance="outline">
+                    <mat-label>Describe Your company and products</mat-label>
+                    <textarea formControlName="companyProducts" matInput placeholder="Enter Your company and products" required
+                        matInput></textarea>
+                        <mat-error *ngIf="!incubationForm.controls['companyProducts'].valid">
+                            fill the field
+                          </mat-error>
+                </mat-form-field>
+    
+                <mat-form-field class="input-width" appearance="outline">
+                    <mat-label>Describe the problem you are trying to solve</mat-label>
+                    <textarea formControlName="problem" matInput placeholder="Enter the problem you are trying to solve" required
+                        matInput></textarea>
+                        <mat-error *ngIf="!incubationForm.controls['problem'].valid">
+                            fill the field
+                          </mat-error>
+                </mat-form-field>
+    
+                <mat-form-field class="input-width" appearance="outline">
+                    <mat-label>What is unique about your solution</mat-label>
+                    <textarea formControlName="solution" matInput placeholder="Enter What is unique about your solution" required
+                        matInput></textarea>
+                        <mat-error *ngIf="!incubationForm.controls['solution'].valid">
+                            fill the field
+                          </mat-error>
+                </mat-form-field>
+    
+                <mat-form-field class="input-width" appearance="outline">
+                    <mat-label>what is your value proposition for the customer</mat-label>
+                    <textarea formControlName="proposition" matInput placeholder="Enter value proposition for the customer" required
+                        matInput></textarea>
+                        <mat-error *ngIf="!incubationForm.controls['proposition'].valid">
+                            fill the field
+                          </mat-error>
+                </mat-form-field>
+    
+                <mat-form-field class="input-width" appearance="outline">
+                    <mat-label>Who is your competitors and whats is your competatilve advantage ? </mat-label>
+                    <textarea formControlName="competitors" matInput placeholder="Enter your competitors and competatilve advantage" required
+                        matInput></textarea>
+                        <mat-error *ngIf="!incubationForm.controls['competitors'].valid">
+                            fill the field
+                          </mat-error>
+                </mat-form-field>
+                <mat-form-field class="input-width" appearance="outline">
+                    <mat-label>Explain your revenue model</mat-label>
+                    <textarea formControlName="revenue" matInput placeholder="Enter your revenue" required
+                        matInput></textarea>
+                        <mat-error *ngIf="!incubationForm.controls['revenue'].valid">
+                            fill the field
+                          </mat-error>
+                </mat-form-field>
+                <mat-form-field class="input-width" appearance="outline">
+                    <mat-label>What is the potential market size of the product ?</mat-label>
+                    <textarea formControlName="marketSize" matInput placeholder="Enter your potential market size of the product" required
+                        matInput></textarea>
+                        <mat-error *ngIf="!incubationForm.controls['marketSize'].valid">
+                            fill the field
+                          </mat-error>
+                </mat-form-field>
+                <mat-form-field class="input-width" appearance="outline">
+                    <mat-label>How do you market or plan to market your products and services?</mat-label>
+                    <textarea formControlName="marketPlan" matInput placeholder="Enter your plan to market" required
+                        matInput></textarea>
+                        <mat-error *ngIf="!incubationForm.controls['marketPlan'].valid">
+                            fill the field
+                          </mat-error>
+                </mat-form-field>
+                
+                    <mat-radio-group aria-label="Select an option" formControlName="options" class="radio f-left">
+                        <h3>Type of Incubation needed</h3>
+                        <mat-radio-button value="physicalIncubation">Physical Incubation</mat-radio-button><br>
+                        <mat-radio-button value="virtualIncubation">Virtual Incubation</mat-radio-button>
+                      </mat-radio-group>
+                <mat-form-field class="input-width" appearance="outline">
+                    <mat-label>Upload a detailed business proposal</mat-label>
+                    <textarea formControlName="proposal" matInput placeholder="Enter your proposal" required
+                        matInput></textarea>
+                        <mat-error *ngIf="!incubationForm.controls['proposal'].valid">
+                            fill the field
+                          </mat-error>
+                </mat-form-field>
+                <button mat-flat-button color="primary" type="submit">Submit</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

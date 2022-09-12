@@ -1,0 +1,48 @@
+mat-card {
+    
+    max-width: 800px;
+    margin: 2em auto;
+    text-align: center;
+}
+
+mat-form-field{
+    width: 90%;
+}
+.two-input {
+    width: 100%;
+    justify-content: center;
+}
+
+.full-width {
+    width: 50%;
+    padding: 20px;
+}
+
+.half-input {
+    padding-top: 10px;
+}
+
+.input-width{
+    width:95%;
+}
+
+.f-left{
+    float: left;
+}
+
+.radio{
+    width: fit-content;
+    padding: 20px;
+}
+
+.width{
+    width:fit-content;
+    margin-left: 20px;
+}
+
+@media screen and (max-width:600px){
+    .full-width{
+        width: 100%;
+        padding: 10px;
+    }
+}

@@ -1,0 +1,48 @@
+
+<mat-card>
+  <div class="bar">
+    <mat-progress-bar *ngIf="bar" mode="indeterminate"></mat-progress-bar>
+  </div>
+  <mat-card-content>
+    <div class="header">
+      <mat-icon>home</mat-icon>
+      <h2>{{title}}</h2>
+    </div>
+    <form (ngSubmit)="OnSubmit()" name="loginForm" [formGroup]="loginForm">
+      <div class="emailInput">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input formControlName="email" matInput placeholder="Enter email address" required />
+          <mat-error *ngIf="!loginForm.controls['email'].valid">
+            Email is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <span>
+          <a class="text-link" class="aLink" routerLink="/auth/forgot-password">Forgot Password?</a>
+        </span>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input formControlName="password" matInput [type]=" hide ? 'password' : 'text'" required />
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>
+              {{hide ? 'visibility_off' : 'visibility'}}
+            </mat-icon>
+          </button>
+          <mat-error *ngIf="!loginForm.controls['password'].valid">
+            Password is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <p *ngIf="errorMsg" style="color: red;">{{errorMsg+"!"}}</p>
+      <button mat-flat-button color="primary" type="submit">{{title.slice(0,-4)}}</button>
+    </form>
+
+    <div class="button-row">
+      <a class="link"  (click)="onNav()">{{route}}</a>
+    </div>
+  </mat-card-content>
+</mat-card>
