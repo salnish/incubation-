@@ -141,8 +141,6 @@ const getForm = asyncHandler(async (req,res)=>{
     console.log(appData)
     res.status(200).json(appData);
   }else{
-    console.log("elsesesldlls")
-    console.log(appData)
     res.status(400);
     throw new Error("form data not found");
 

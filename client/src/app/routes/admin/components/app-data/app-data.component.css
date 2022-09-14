@@ -1,0 +1,25 @@
+.mat-table{
+    min-height: 400px;
+    width:100%;
+    border-radius: 2%;
+}
+
+.head{
+    text-align: center;
+    color: red;
+}
+
+.data{
+    text-align: center;
+}
+
+.error{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 30, 0, 0.907);
+}
+button{
+    margin: 30px;
+}
+

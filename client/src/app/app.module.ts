@@ -4,7 +4,6 @@ import { AuthGuard } from './services/auth.guard';
 import { AuthService } from './services/auth.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -44,8 +43,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar'
     MatIconModule,
     BrowserAnimationsModule,
     MatProgressBarModule,
-    MatSnackBarModule,
-    CommonModule
+    MatSnackBarModule
   ],
   providers: [AuthService,AuthGuard,UserService,
   {

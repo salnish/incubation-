@@ -1,3 +1,4 @@
+import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 import { UserstatusComponent } from './components/userstatus/userstatus.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
 import { UserHomeComponent } from './components/user-home/user-home.component';
@@ -11,6 +12,7 @@ const routes: Routes = [
     children:[
       {path:'form',component:UserFormComponent},
       {path:'status',component:UserstatusComponent},
+      {path:'progress',component:ProgressBarComponent},
       {path:'',redirectTo:'/user/form',pathMatch:'full'}
     ]
     

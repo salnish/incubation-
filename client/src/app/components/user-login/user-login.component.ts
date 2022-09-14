@@ -35,6 +35,7 @@ export class UserLoginComponent implements OnInit {
         },
         error: (e) => {
           if( e instanceof HttpErrorResponse) {
+            this.bar=!this.bar;
             this.err=e.error
             console.log(e.error)
             }

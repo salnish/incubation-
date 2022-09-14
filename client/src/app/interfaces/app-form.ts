@@ -1,4 +1,5 @@
 export interface AppForm {
+    _id?:string
     name: string,
     email: string,
     address: string,
@@ -17,4 +18,13 @@ export interface AppForm {
     marketPlan: string,
     options: string,
     proposal: string,
+    slotCode?:string,
+    bookingStatus?:boolean,
+    status?:string,
+    slot_no?:string,
+    section?:string,
+    createdAt?:string
+
+
+
 }

@@ -1,2 +1,15 @@
-<p>admin-dashboard works!</p>
-<router-outlet></router-outlet>
+<mat-toolbar>
+    <button type="button" mat-flat-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="head">Admin Side</h1>
+</mat-toolbar>
+<mat-sidenav-container autosize>
+    <mat-sidenav #drawer mode="side">
+        <app-side-bar></app-side-bar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

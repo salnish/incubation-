@@ -14,7 +14,9 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatSelectModule} from "@angular/material/select";
 import {MatGridListModule} from '@angular/material/grid-list';
-import {MatRadioModule} from '@angular/material/radio'
+import {MatRadioModule} from '@angular/material/radio';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { ProgressBarComponent } from './components/progress-bar/progress-bar.component'
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import {MatRadioModule} from '@angular/material/radio'
     UserHomeComponent,
     UserFormComponent,
     UserstatusComponent,
-    UserHeaderComponent
+    UserHeaderComponent,
+    ProgressBarComponent
   ],
   imports: [
     CommonModule,
@@ -33,6 +36,7 @@ import {MatRadioModule} from '@angular/material/radio'
     MatButtonModule,
     MatInputModule,
     MatIconModule,
+    MatProgressSpinnerModule,
     MatProgressBarModule,
     MatSelectModule,
     MatGridListModule,

@@ -1,0 +1,29 @@
+mat-sidenav {
+    position: fixed;
+    top: 80px;
+    min-width: 20%;
+    height: fit-content;
+    background-color: rgb(214, 255, 252);
+}
+
+mat-toolbar {
+    background-color: rgb(72, 72, 72);
+}
+
+mat-sidenav-container {
+    background-color: rgb(214, 255, 252);
+}
+
+mat-sidenav-content {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(232, 252, 251);
+}
+
+.head {
+    color: white;
+    margin: auto;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}

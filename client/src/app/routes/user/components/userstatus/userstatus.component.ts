@@ -11,19 +11,19 @@ import { Component, OnInit } from '@angular/core';
 export class UserstatusComponent implements OnInit {
 
   title:string='Application Details'
-  app:AppForm
+  app!:AppForm
   constructor(private _router:Router, private _userService:UserService) {
+   }
+
+  ngOnInit(): void {
     this._userService.getForm()
     .subscribe({
       next:(v)=>{
         this.app=v;
         console.log(v)
-        console.log(typeof this.app.name)
+        console.log( this.app.name)
       }
     })
-   }
-
-  ngOnInit(): void {
   }
 
 

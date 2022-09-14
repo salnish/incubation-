@@ -1,0 +1,143 @@
+<mat-card>
+    <mat-tab-group preserveContent>
+        <mat-tab label="All Applications">
+            <div *ngIf="allData.length>0" class="mat-table">
+                <table class="mat-table" mat-table [dataSource]="dataSource">
+
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="position">
+                        <th mat-header-cell *matHeaderCellDef> No. </th>
+                        <td mat-cell *matCellDef="let element; let i = index;">{{i+1}}</td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="Application Id">
+                        <th class="head" mat-header-cell *matHeaderCellDef> Application Id </th>
+                        <td class="data" mat-cell *matCellDef="let element"> {{element.id}} </td>
+                    </ng-container>
+
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="Company Name">
+                        <th class="head" mat-header-cell *matHeaderCellDef> Company Name </th>
+                        <td class="data" mat-cell *matCellDef="let element"> {{element.companyName|titlecase}} </td>
+                    </ng-container>
+
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="Status">
+                        <th class="head" mat-header-cell *matHeaderCellDef> Status </th>
+                        <td class="head" mat-cell *matCellDef="let element"> {{element.status}} </td>
+                    </ng-container>
+
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="Action">
+                        <th class="head" mat-header-cell *matHeaderCellDef> Action </th>
+                        <td class="head" mat-cell *matCellDef="let element">  <button mat-flat-button color="primary">View Application</button></td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                    aria-label="Select page of periodic elements">
+                </mat-paginator>
+            </div>
+            <div *ngIf="allData.length==0" class="mat-table error">
+                <h2>No forms !</h2>
+            </div>
+        </mat-tab>
+        <mat-tab label="New Applications">
+            <div *ngIf="newForm.length>0" class="mat-table">
+                <table class="mat-table" mat-table [dataSource]="newDataSource">
+
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="position">
+                        <th mat-header-cell *matHeaderCellDef> No. </th>
+                        <td mat-cell *matCellDef="let element; let i = index;">{{i+1}}</td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="Application Id">
+                        <th class="head" mat-header-cell *matHeaderCellDef> Application Id </th>
+                        <td class="data" mat-cell *matCellDef="let element"> {{element.id}} </td>
+                    </ng-container>
+
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="Company Name">
+                        <th class="head" mat-header-cell *matHeaderCellDef> Company Name </th>
+                        <td class="data" mat-cell *matCellDef="let element"> {{element.companyName|titlecase}} </td>
+                    </ng-container>
+
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="Status">
+                        <th class="head" mat-header-cell *matHeaderCellDef> Status </th>
+                        <td class="head" mat-cell *matCellDef="let element"> {{element.status}} </td>
+                    </ng-container>
+
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="Action">
+                        <th class="head" mat-header-cell *matHeaderCellDef> Action </th>
+                        <td class="head" mat-cell *matCellDef="let element"> <a></a></td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                    aria-label="Select page of periodic elements">
+                </mat-paginator>
+            </div>
+            <div *ngIf="newForm.length==0" class="mat-table error">
+                <h2>No new forms !</h2>
+            </div>
+        </mat-tab>
+        <mat-tab label="Pending Applications">
+            <div *ngIf="pendingForm.length>0" class="mat-table">
+                <table class="mat-table" mat-table [dataSource]="pendingDataSource">
+
+
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="position">
+                        <th mat-header-cell *matHeaderCellDef> No. </th>
+                        <td mat-cell *matCellDef="let element; let i = index;">{{i+1}}</td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="Application Id">
+                        <th class="head" mat-header-cell *matHeaderCellDef> Application Id </th>
+                        <td class="data" mat-cell *matCellDef="let element"> {{element.id}} </td>
+                    </ng-container>
+
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="Company Name">
+                        <th class="head" mat-header-cell *matHeaderCellDef> Company Name </th>
+                        <td class="data" mat-cell *matCellDef="let element"> {{element.companyName|titlecase}} </td>
+                    </ng-container>
+
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="Status">
+                        <th class="head" mat-header-cell *matHeaderCellDef> Status </th>
+                        <td class="head" mat-cell *matCellDef="let element"> {{element.status}} </td>
+                    </ng-container>
+
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="Action">
+                        <th class="head" mat-header-cell *matHeaderCellDef> Action </th>
+                        <td class="head" mat-cell *matCellDef="let element"> <a></a></td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                    aria-label="Select page of periodic elements">
+                </mat-paginator>
+            </div>
+            <div *ngIf="pendingForm.length==0" class="mat-table error">
+                <h2>No pending forms !</h2>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</mat-card>

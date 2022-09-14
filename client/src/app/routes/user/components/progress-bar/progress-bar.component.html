@@ -1,0 +1,10 @@
+<mat-card class="container">
+    <h1>Hello {{name |titlecase}} Welcome to Incubation</h1>
+    <h3>Your Application Status</h3>
+    <mat-card>
+        <mat-card-content>
+            <mat-progress-bar mode="determinate" value={{value}}></mat-progress-bar>
+        </mat-card-content>
+    </mat-card>
+    <button class="btn" mat-flat-button color="primary" routerLink="/user/status">View Application</button>
+</mat-card>

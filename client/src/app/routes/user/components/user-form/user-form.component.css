@@ -1,13 +1,26 @@
 mat-card {
-    
     max-width: 800px;
     margin: 2em auto;
     text-align: center;
 }
 
-mat-form-field{
+mat-form-field {
     width: 90%;
 }
+
+mat-spinner{
+    position: absolute;
+}
+
+.spinner {
+    position: sticky;
+    top: 50vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .two-input {
     width: 100%;
     justify-content: center;
@@ -22,26 +35,26 @@ mat-form-field{
     padding-top: 10px;
 }
 
-.input-width{
-    width:95%;
+.input-width {
+    width: 95%;
 }
 
-.f-left{
+.f-left {
     float: left;
 }
 
-.radio{
+.radio {
     width: fit-content;
     padding: 20px;
 }
 
-.width{
-    width:fit-content;
+.width {
+    width: fit-content;
     margin-left: 20px;
 }
 
-@media screen and (max-width:600px){
-    .full-width{
+@media screen and (max-width:600px) {
+    .full-width {
         width: 100%;
         padding: 10px;
     }

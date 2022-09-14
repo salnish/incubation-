@@ -13,6 +13,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class UserFormComponent implements OnInit {
   title: string = 'Application for Incubation';
   states: string[] = States
+  spinner: boolean = false;
 
   constructor(private fb: FormBuilder, private _router: Router, private _userService: UserService, private _snackBar: MatSnackBar) { }
 
@@ -20,8 +21,8 @@ export class UserFormComponent implements OnInit {
     this._userService.getForm()
       .subscribe({
         next: (v) => {
-          if (v.data) {
-            this._router.navigate(['user/status'])
+          if (v) {
+            this._router.navigate(['user/progress'])
           }
         },
         error: (e) => { console.log(e) }
@@ -53,11 +54,13 @@ export class UserFormComponent implements OnInit {
     if (!this.incubationForm.valid) {
       return;
     }
+    this.spinner = !this.spinner;
     console.log(this.incubationForm.value)
     this._userService.submitForm(this.incubationForm.value)
       .subscribe({
         next: (v) => {
           this._snackBar.open(`${v.name} your Application has been submited success`, "ok")
+          this.spinner = !this.spinner;
           this._router.navigate(['user/status'])
         },
         error: (e) => { console.log(e) }
