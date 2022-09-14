@@ -1,66 +1,70 @@
 <mat-card>
-    <mat-card-content>
-        <div class="header">
-            <h1>{{title|titlecase}}</h1>
-            <button class="btn" mat-flat-button  routerLink="/user/progress"><mat-icon>close</mat-icon>
-            </button>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <h4><span>Name :</span> {{ app.name|titlecase}}</h4>
-            </div>
-            <div class="col-12">
-                <h4><span>Email :</span> {{app.email}}</h4>
-            </div>
-            <div class="col-12">
-                <h4><span>City : </span>{{ app.city|titlecase}}</h4>
-            </div>
-            <div class="col-12">
-                <p><span>Address:</span> {{app.address|titlecase}}</p>
-            </div>
-            <div class="col-12">
-                <h4><span>State :</span> {{ app.state|titlecase}}</h4>
-            </div>
-            <div class="col-12">
-                <h4><span>Phone :</span> {{ app.phone}}</h4>
-            </div>
-            <div class="col-12">
-                <h4><span>Company Name :</span> {{ app.city|titlecase}}</h4>
-            </div>
-            <div class="col-12">
-                <span>Team and Background :</span>
-                <p> {{app.teamBackground|titlecase}}</p>
-            </div>
-            <div class="col-12"><span>Your company and products :</span>
-                <p> {{app.companyProducts|titlecase}}</p>
-            </div>
-            <div class="col-12"><span>The problem you are trying to solve :</span>
-                <p> {{app.problem|titlecase}}</p>
-            </div>
-            <div class="col-12"><span>Unique about your solution :</span>
-                <p>{{app.solution|titlecase}}</p>
-            </div>
-            <div class="col-12"><span>Value proposition for the customer :</span>
-                <p> {{app.proposition|titlecase}}</p>
-            </div>
-            <div class="col-12">
-                <h4><span>Application Type :</span>{{ app.options|titlecase}}</h4>
-            </div>
-            <div class="col-12">
-                <h4><span>slotCode :</span> {{ app.slotCode|titlecase}}</h4>
-            </div>
-            <div class="col-12">
-                <h4><span>slot_no : </span>{{ app.slot_no|titlecase}}</h4>
-            </div>
-            <div class="col-12">
-                <h4><span>section :</span> {{ app.section|titlecase}}</h4>
-            </div>
-            <div class="col-12">
-                <h4><span>Submited On : </span> {{ app.createdAt|date :'medium'}}</h4>
-            </div>
-
-
-
-        </div>
-    </mat-card-content>
+  <mat-card-content>
+    <div class="header">
+      <h1>{{ title | titlecase }}</h1>
+      <button class="btn" mat-flat-button (click)="closeDetails()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div *ngIf="app" class="row">
+      <div class="col-12">
+        <h4><span>Name :</span> {{ app.name | titlecase }}</h4>
+      </div>
+      <div class="col-12">
+        <h4><span>Email :</span> {{ app.email }}</h4>
+      </div>
+      <div class="col-12">
+        <h4><span>City : </span>{{ app.city | titlecase }}</h4>
+      </div>
+      <div class="col-12">
+        <p><span>Address:</span> {{ app.address | titlecase }}</p>
+      </div>
+      <div class="col-12">
+        <h4><span>State :</span> {{ app.state | titlecase }}</h4>
+      </div>
+      <div class="col-12">
+        <h4><span>Phone :</span> {{ app.phone }}</h4>
+      </div>
+      <div class="col-12">
+        <h4><span>Company Name :</span> {{ app.city | titlecase }}</h4>
+      </div>
+      <div class="col-12">
+        <span>Team and Background :</span>
+        <p>{{ app.teamBackground | titlecase }}</p>
+      </div>
+      <div class="col-12">
+        <span>Your company and products :</span>
+        <p>{{ app.companyProducts | titlecase }}</p>
+      </div>
+      <div class="col-12">
+        <span>The problem you are trying to solve :</span>
+        <p>{{ app.problem | titlecase }}</p>
+      </div>
+      <div class="col-12">
+        <span>Unique about your solution :</span>
+        <p>{{ app.solution | titlecase }}</p>
+      </div>
+      <div class="col-12">
+        <span>Value proposition for the customer :</span>
+        <p>{{ app.proposition | titlecase }}</p>
+      </div>
+      <div class="col-12">
+        <h4><span>Application Type :</span>{{ app.options | titlecase }}</h4>
+      </div>
+      <div class="col-12">
+        <h4><span>slotCode :</span> {{ app.slotCode | titlecase }}</h4>
+      </div>
+      <div class="col-12">
+        <h4><span>slot_no : </span>{{ app.slot_no | titlecase }}</h4>
+      </div>
+      <div class="col-12">
+        <h4><span>section :</span> {{ app.section | titlecase }}</h4>
+      </div>
+      <div class="col-12">
+        <h4>
+          <span>Submited On : </span> {{ app.createdAt | date: "medium" }}
+        </h4>
+      </div>
+    </div>
+  </mat-card-content>
 </mat-card>

@@ -23,3 +23,6 @@ button{
     margin: 30px;
 }
 
+.approved{
+    background-color: greenyellow;
+}
