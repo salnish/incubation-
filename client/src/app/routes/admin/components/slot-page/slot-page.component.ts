@@ -9,16 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SlotPageComponent implements OnInit {
 
-  allSlots!:Slot[];
+  allSlots:Slot[]=[];
   class:string='false'
+  dialog:boolean=false;
+  slot!:Slot;
 
   constructor(private _adminService:AdminService) { }
   getSlots(){
+    this.allSlots=[]
     this._adminService.getAllSlots()
     .subscribe({
       next:(v)=>{
-        this.allSlots=v;
-        this.class=v.selected?"true":"false"
+        v.forEach(x => {
+          x.selected=x.selected?'true':'false'
+          this.allSlots.push(x)
+        });
       },
       error:(err)=>{
         console.log(err)
@@ -31,8 +36,27 @@ export class SlotPageComponent implements OnInit {
 
   }
 
-  openDialog(){
+  openDialog(id:string,slotSection:string,slotNo:string,selected?:string|boolean,companyName?:string){
+    if(companyName){
+      return
+    }
+    this.dialog=!this.dialog;
+    this.slot={
+      _id:id,
+      section:slotSection,
+      slot_no:slotNo,
+      selected:selected,
+      companyname:companyName
+    }
     
   }
+  
+  onClose(){
+    this.dialog=!this.dialog;
+  }
 
+  updateData(){
+    this.getSlots();
+    this.onClose();
+  }
 }

@@ -1,13 +1,22 @@
 <mat-card>
     <mat-card-content>
-        <mat-form-field>
-            <mat-label>Company list</mat-label>
-            <mat-select name="company" ngModel>
-                <mat-option *ngFor="let company of companyData" [value]="company.id">
-                    {{company.companyName}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-        <button mat->book</button>
+        <div class="header">
+            <h1>{{companyData.length>0?'Slot Booking':'No approved company'}}</h1>
+            <button class="btn" mat-flat-button (click)="close()"><mat-icon>close</mat-icon>
+            </button>
+        </div>
+        <div *ngIf="companyData.length>0">
+            <mat-form-field class="full-width">
+                <mat-label>Company list</mat-label>
+                <mat-select [(value)]="companyId">
+                    <mat-option *ngFor="let company of companyData" [value]="company.id">
+                        {{company.companyName}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="error">{{error}}</mat-error>
+            </mat-form-field>
+            <button  mat-raised-button (click)="bookSlot()">book</button>
+        </div>
+        
     </mat-card-content>
 </mat-card>

@@ -18,7 +18,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field'
-import { MatDialogModule} from '@angular/material/dialog'
+import { MatDialogModule} from '@angular/material/dialog';
+import { MatTooltipModule} from '@angular/material/tooltip';
 
 
 import { AdminRoutingModule } from './admin-routing.module';
@@ -65,7 +66,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
     MatPaginatorModule,
     MatTableModule,
     MatFormFieldModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule
   ]
 })
 export class AdminModule { }

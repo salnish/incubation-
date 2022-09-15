@@ -1,3 +1,4 @@
+import { Slot } from './../interfaces/slot';
 import { Observable } from 'rxjs';
 import { AppForm } from './../interfaces/app-form';
 import { Router } from '@angular/router';
@@ -21,6 +22,10 @@ export class AdminService {
     return this.http.get<any>(`${this._adminurl}/viewApplication/${formId}`)
   }
 
+  getApprovedForms(){
+    return this.http.get<any>(`${this._adminurl}/approvedForms`)
+  }
+
   updateStatus(formId:string,status:string){
     let body={
       id:formId,
@@ -30,6 +35,15 @@ export class AdminService {
   }
 
   getAllSlots(){
-    return this.http.get<any>(`${this._adminurl}/allSlots`)
+    return this.http.get<Slot[]>(`${this._adminurl}/allSlots`)
+  }
+  bookSlot(slot:Slot,companyId:string){
+    let body={
+      id:slot._id,
+      section:slot.section,
+      slNo:slot.slot_no,
+      companyId:companyId
+    }
+    return this.http.put<any>(`${this._adminurl}/slotBook`,body)
   }
 }

@@ -59,7 +59,6 @@ export class AppDataComponent implements OnInit, OnChanges, DoCheck {
         next: (v) => {
           this.appData = v;
           v.map((x) => {
-            let i = 0;
             const newData: AppData = {
               id: x._id,
               companyName: x.companyName,

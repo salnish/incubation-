@@ -19,6 +19,20 @@ const getAllApp = asyncHandler(async (req, res) => {
     throw new Error("Form Data not found");
   }
 });
+
+//@desc Get approved application Forms
+//@Route GET/api/admin/approvedForms
+//@Access private
+const approvedForms = asyncHandler(async (req, res) => {
+  await applicationModel.find({status:'Approved'})
+  .then((approvedData)=>{
+    res.status(200).json(approvedData)
+  }).catch((err)=>{
+    res.status(400);
+    throw new Error("No approved forms found")
+  })
+});
+
 //@desc View application Form
 //@Route GET/api/admin/viewApplication
 //@Access private
@@ -62,9 +76,45 @@ const allSlots= asyncHandler(async(req,res)=>{
   })
 })
 
+//@desc  Book the slot
+//@Route PUT/api/admin/slotBook
+//@Access private
+const slotBook=asyncHandler(async(req,res)=>{
+  const {id,section,slNo,companyId} =req.body
+  await applicationModel.findOneAndUpdate(
+    {_id:companyId},
+    {$set:{bookingStatus:true,slotCode:id,section:section,slot_no:slNo,status:'Booked'}}
+  )
+  .then(async(company)=>{
+    await slotsModel.findByIdAndUpdate(
+      {_id:id},
+      {
+        $set:{
+          selected:true,
+          companyname:company.companyName,
+          userId:company.userId
+        }
+      }
+
+    ).then((d)=>{
+      res.status(200).json(d)
+    }).catch((err)=>{
+      console.log(err);
+      res.status(400);
+      throw new Error("Slot not booked")
+    })
+  }).catch((err)=>{
+    res.status(400);
+    throw new Error("Application not found")
+  })
+ 
+})
+
 module.exports = {
   getAllApp,
   viewApplication,
   updateStatus,
   allSlots,
+  approvedForms,
+  slotBook
 };

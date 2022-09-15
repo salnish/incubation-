@@ -1,0 +1,27 @@
+mat-card{
+    text-align: center;
+    background-color: rgb(255, 221, 176);
+    position: absolute;
+    top: 0%;
+    left: 30%;
+    
+}
+.full-width{
+    width: 100%;
+}
+
+.btn{
+    margin: auto;
+    background-color: transparent;
+}
+
+h1 {
+    font-weight: bold;
+    margin: 0;
+    
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+}

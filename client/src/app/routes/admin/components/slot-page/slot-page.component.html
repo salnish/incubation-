@@ -1,6 +1,12 @@
 <mat-card class="matcard">
     <mat-grid-list cols="6" rowHeight="2:1">
-        <mat-grid-tile *ngFor="let slot of allSlots"><button [ngClass]="class" (click)="openDialog()" mat-raised-button>{{slot.section}} {{slot.slot_no}}</button></mat-grid-tile>
+        <mat-grid-tile *ngFor="let slot of allSlots"><button matTooltip="{{slot.companyname}}" class="{{slot.selected}}" (click)="openDialog(slot._id,slot.section,slot.slot_no,slot.selected,slot.companyname)" mat-raised-button>{{slot.section}} {{slot.slot_no}}</button></mat-grid-tile>
       </mat-grid-list>
+      <app-dialog *ngIf="dialog"
+      (closeBox)="onClose()"
+      (update)="updateData()"
+      [slot]="slot"
+      ></app-dialog>
 </mat-card>
+
   

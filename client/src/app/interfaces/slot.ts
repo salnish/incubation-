@@ -1,7 +1,8 @@
 export interface Slot {
-    id?:string;
+    _id:string;
     section:string;
     slot_no:string;
-    companyName?:string;
+    selected?:boolean|string
+    companyname?:string;
     userid?:string;
 }
