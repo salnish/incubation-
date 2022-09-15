@@ -16,7 +16,9 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatListModule } from '@angular/material/list'
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatTableModule } from '@angular/material/table'
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatDialogModule} from '@angular/material/dialog'
 
 
 import { AdminRoutingModule } from './admin-routing.module';
@@ -27,6 +29,7 @@ import { AppDataComponent } from './components/app-data/app-data.component';
 import { UserDataComponent } from './components/user-data/user-data.component';
 import { SlotPageComponent } from './components/slot-page/slot-page.component';
 import { ViewApplicationComponent } from './components/view-application/view-application.component';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 
 @NgModule({
@@ -37,7 +40,8 @@ import { ViewApplicationComponent } from './components/view-application/view-app
     AppDataComponent,
     UserDataComponent,
     SlotPageComponent,
-    ViewApplicationComponent
+    ViewApplicationComponent,
+    DialogComponent
   ],
   imports: [
     CommonModule,
@@ -59,7 +63,9 @@ import { ViewApplicationComponent } from './components/view-application/view-app
     MatToolbarModule,
     MatTabsModule,
     MatPaginatorModule,
-    MatTableModule
+    MatTableModule,
+    MatFormFieldModule,
+    MatDialogModule
   ]
 })
 export class AdminModule { }

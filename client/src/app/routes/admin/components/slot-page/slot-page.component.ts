@@ -1,3 +1,5 @@
+import { AdminService } from './../../../../services/admin.service';
+import { Slot } from './../../../../interfaces/slot';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SlotPageComponent implements OnInit {
 
-  constructor() { }
+  allSlots!:Slot[];
+  class:string='false'
+
+  constructor(private _adminService:AdminService) { }
+  getSlots(){
+    this._adminService.getAllSlots()
+    .subscribe({
+      next:(v)=>{
+        this.allSlots=v;
+        this.class=v.selected?"true":"false"
+      },
+      error:(err)=>{
+        console.log(err)
+      }
+    })
+  }
 
   ngOnInit(): void {
+    this.getSlots();
+
+  }
+
+  openDialog(){
+    
   }
 
 }

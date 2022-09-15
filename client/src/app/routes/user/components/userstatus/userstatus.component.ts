@@ -12,6 +12,7 @@ export class UserstatusComponent implements OnInit {
 
   title:string='Application Details'
   app!:AppForm
+  suni:string=''
   constructor(private _router:Router, private _userService:UserService) {
    }
 

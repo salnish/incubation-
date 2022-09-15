@@ -28,4 +28,8 @@ export class AdminService {
     }
     return this.http.put<any>(`${this._adminurl}/updateStatus`,body)
   }
+
+  getAllSlots(){
+    return this.http.get<any>(`${this._adminurl}/allSlots`)
+  }
 }

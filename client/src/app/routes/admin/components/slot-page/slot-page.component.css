@@ -1,0 +1,39 @@
+.mat-card{
+   width: 80rem;
+}
+
+button{
+    height: 4rem;
+}
+
+.true{
+    background-color:rgb(160, 160, 160);
+}
+
+.false{
+    background-color: rgb(209, 231, 255);
+}
+
+@media screen and (max-width:1140px) {
+   .matcard{
+    width: 60rem;
+   }
+}
+
+@media screen and (max-width:845px) {
+    .matcard{
+     width: 40rem;
+    }
+ }
+
+ @media screen and (max-width:585px) {
+    .matcard{
+     width: 30rem;
+    }
+ }
+
+ @media screen and (max-width:465px) {
+    .matcard{
+     width: 25rem;
+    }
+ }

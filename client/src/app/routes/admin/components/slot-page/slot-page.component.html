@@ -1,1 +1,6 @@
-<p>slot-page works!</p>
+<mat-card class="matcard">
+    <mat-grid-list cols="6" rowHeight="2:1">
+        <mat-grid-tile *ngFor="let slot of allSlots"><button [ngClass]="class" (click)="openDialog()" mat-raised-button>{{slot.section}} {{slot.slot_no}}</button></mat-grid-tile>
+      </mat-grid-list>
+</mat-card>
+  

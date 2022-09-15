@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const asyncHandler = require("express-async-handler");
 const User = require("../models/user");
 const applicationModel = require("../models/applicationModel");
+const slotsModel= require("../models/slotsModel")
 const mongoose = require("mongoose");
 const { application } = require("express");
 
@@ -18,7 +19,9 @@ const getAllApp = asyncHandler(async (req, res) => {
     throw new Error("Form Data not found");
   }
 });
-
+//@desc View application Form
+//@Route GET/api/admin/viewApplication
+//@Access private
 const viewApplication = asyncHandler(async (req, res) => {
  await applicationModel.findById(req.params.id).then((application)=>{
     res.status(200).json(application);
@@ -28,6 +31,9 @@ const viewApplication = asyncHandler(async (req, res) => {
  })
 });
 
+//@desc PUT  application Status
+//@Route PUT/api/admin/updateStatus
+//@Access private
 const updateStatus = asyncHandler(async(req,res)=>{
     const status = req.body;
      await applicationModel.findByIdAndUpdate(
@@ -42,8 +48,23 @@ const updateStatus = asyncHandler(async(req,res)=>{
     })
 })
 
+//@desc GET  All Slots 
+//@Route GET/api/admin/allSlots
+//@Access private
+const allSlots= asyncHandler(async(req,res)=>{
+  await slotsModel.find({})
+  .then((slots)=>{
+    res.status(200).json(slots)
+  })
+  .catch((err)=>{
+    res.status(400);
+    throw new Error("No slots found")
+  })
+})
+
 module.exports = {
   getAllApp,
   viewApplication,
   updateStatus,
+  allSlots,
 };
