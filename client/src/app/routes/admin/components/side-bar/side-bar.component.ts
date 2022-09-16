@@ -1,3 +1,4 @@
+import { AdminService } from './../../../../services/admin.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _adminService:AdminService) { }
 
   ngOnInit(): void {
   }
 
+  logout(){
+    this._adminService.logoutAdmin()
+  }
 }

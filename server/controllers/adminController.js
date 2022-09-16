@@ -2,10 +2,46 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const asyncHandler = require("express-async-handler");
 const User = require("../models/user");
+const adminModel =require("../models/adminModel")
 const applicationModel = require("../models/applicationModel");
 const slotsModel= require("../models/slotsModel")
 const mongoose = require("mongoose");
-const { application } = require("express");
+
+
+
+//@desc admin login
+//@Route POST/api/admin/
+//@Access public
+const adminLogin=asyncHandler(async(req,res)=>{
+  const { email, password } = req.body;
+
+  //check for user email
+  const admin = await adminModel.findOne({ email });
+
+  if (admin && (await bcrypt.compare(password, admin.password))) {
+    res.json({
+      _id: admin.id,
+      email: admin.email,
+      token: generateToKen(admin.id),
+    });
+  } else {
+    res.status(400).send("Invalid credentials");
+  }
+})
+
+
+//@desc Get all application Forms
+//@Route GET/api/admin/getAppData
+//@Access private
+const allUsers = asyncHandler(async (req, res) => {
+  const alluserData = await User.find({});
+  if (alluserData) {
+    res.status(200).json(alluserData);
+  } else {
+    res.status(400);
+    throw new Error("Form Data not found");
+  }
+});
 
 //@desc Get all application Forms
 //@Route GET/api/admin/getAppData
@@ -110,11 +146,20 @@ const slotBook=asyncHandler(async(req,res)=>{
  
 })
 
+//Generate JWT
+const generateToKen = (id) => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, {
+    expiresIn: "30d",
+  });
+};
+
 module.exports = {
   getAllApp,
   viewApplication,
   updateStatus,
   allSlots,
   approvedForms,
-  slotBook
+  slotBook,
+  adminLogin,
+  allUsers,
 };

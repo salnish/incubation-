@@ -12,6 +12,7 @@ export class UserRegisterComponent implements OnInit {
   
   title:string='Register Form'
   path:string='userLogin'
+  side:string='user'
 
   constructor(private _auth:AuthService , private _router:Router) { }
 

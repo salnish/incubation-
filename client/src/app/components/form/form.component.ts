@@ -1,3 +1,4 @@
+import { AdminService } from './../../services/admin.service';
 import { AuthService } from './../../services/auth.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
@@ -15,19 +16,27 @@ export class FormComponent implements OnInit {
 
   @Input() title:string='' 
   @Input() path:string=''
+  @Input() side!:string
   @Input() errorMsg:string=''
   @Input() bar:boolean= false;
   @Output() form:EventEmitter<any> = new EventEmitter()
   route:string=''
 
-  constructor(private fb: FormBuilder,private _auth:AuthService ,private _router:Router) {
+  constructor(private fb: FormBuilder,private _auth:AuthService,private _adminAuth:AdminService ,private _router:Router) {
   }
 
   ngOnInit() {
     this.route= this.path=='userLogin'? 'Already registered ,Login':'Not registered , Register'
-    if(this._auth.loggedIn()){
-      this._router.navigate(['/user'])
+    if(this.side=='user'){
+      if(this._auth.loggedIn()){
+        this._router.navigate(['/user'])
+      }
+    }else{
+      if(this._adminAuth.loggedIn()){
+        this._router.navigate(['/admin'])
+      }
     }
+    
   }
 
   loginForm: FormGroup = this.fb.group({

@@ -1,4 +1,5 @@
 import { AuthGuard } from './services/auth.guard';
+import { AdminAuthGuard } from './services/admin-auth.guard';
 import { UserRegisterComponent } from './components/user-register/user-register.component';
 import { UserLoginComponent } from './components/user-login/user-login.component';
 import { AdminloginComponent } from './components/adminlogin/adminlogin.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   },
   { 
     path:'admin',
+    canActivate:[AdminAuthGuard],
     loadChildren: () =>
     import('./routes/admin/admin.module').then((m)=> m.AdminModule)
   },

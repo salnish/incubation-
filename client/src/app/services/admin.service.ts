@@ -1,3 +1,4 @@
+import { User } from './../interfaces/user';
 import { Slot } from './../interfaces/slot';
 import { Observable } from 'rxjs';
 import { AppForm } from './../interfaces/app-form';
@@ -13,6 +14,20 @@ export class AdminService {
   private _adminurl="http://localhost:5000/api/admin"
 
   constructor(private http:HttpClient,private _router:Router) { }
+
+  loginAdmin(admin:User){
+    return this.http.post<any>(`${this._adminurl}`,admin)
+  }
+
+  loggedIn(){
+    return !!localStorage.getItem('admin')
+  }
+
+  
+  logoutAdmin() {
+    localStorage.removeItem('admin')
+    this._router.navigate(['/adminLogin'])
+  }
 
   getAppData():Observable<AppForm[]>{
     return this.http.get<AppForm[]>(`${this._adminurl}/getAppData`)

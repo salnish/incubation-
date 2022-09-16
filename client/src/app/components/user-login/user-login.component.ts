@@ -13,6 +13,7 @@ export class UserLoginComponent implements OnInit {
 
   title: string = 'Login Form'
   path: string = 'userRegister'
+  side:string="user"
   err!: string; 
   bar:boolean=false
   constructor(private _auth: AuthService, private _router: Router) { }

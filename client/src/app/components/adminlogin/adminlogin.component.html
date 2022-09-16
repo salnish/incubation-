@@ -1,1 +1,9 @@
-<p>adminlogin works!</p>
+<div class="content-body">
+    <app-form
+    [title]="title"
+   (form)="onLogin($event)" 
+   [bar]="bar"
+   [errorMsg]="err"
+   [side]="side"
+    ></app-form>
+</div>

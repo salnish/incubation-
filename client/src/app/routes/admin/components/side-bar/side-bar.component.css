@@ -19,3 +19,8 @@ mat-sidenav-container {
 .full-width {
     width: 100%;
   }
+
+  .link {
+    cursor: pointer;
+    color: rgb(54, 54, 54);
+  }

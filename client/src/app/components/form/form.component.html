@@ -41,7 +41,7 @@
       <button mat-flat-button color="primary" type="submit">{{title.slice(0,-4)}}</button>
     </form>
 
-    <div class="button-row">
+    <div *ngIf="route" class="button-row">
       <a class="link"  (click)="onNav()">{{route}}</a>
     </div>
   </mat-card-content>

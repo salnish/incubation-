@@ -18,7 +18,7 @@ export class ProgressBarComponent implements OnInit {
     this._userService.getForm()
       .subscribe({
         next: (v) => {
-          this.value = v.status == "pending" ? 70 : 80;
+          this.value = v.status == "Pending" ? 50 : v.status == "Approved"? 70 : v.status == "Booked"?100:30
           this.name = v.name
         },
         error:(err)=>{
