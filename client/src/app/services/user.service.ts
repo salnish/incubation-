@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AppForm } from '../interfaces/app-form';
+import { catchError, retry } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,16 @@ export class UserService {
   }
 
   getForm(){
-    return this.http.get<any>(`${this._registerUrl}/getForm`)
+    return this.http.get<any>(`${this._registerUrl}/getForm`).pipe(retry(1),catchError(this.handleError))
+  }
+  handleError(error:any) {
+
+    console.log( error.error.message);
+    if(error.error.message==="jwt expired"){
+      console.log("refresh")
+    }
+    
+    
+    return error
   }
 }

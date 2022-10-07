@@ -1,3 +1,4 @@
+import { AdminService } from './services/admin.service';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { UserService } from './services/user.service';
 import { AuthGuard } from './services/auth.guard';
@@ -45,7 +46,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar'
     MatProgressBarModule,
     MatSnackBarModule
   ],
-  providers: [AuthService,AuthGuard,UserService,
+  providers: [AuthService,AuthGuard,UserService,AdminService,
   {
     provide:HTTP_INTERCEPTORS,
     useClass:TokenInterceptorService,

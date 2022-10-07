@@ -152,7 +152,7 @@ const getForm = asyncHandler(async (req,res)=>{
 //Generate JWT
 const generateToKen = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
-    expiresIn: "30d",
+    expiresIn: 60,
   });
 };
 

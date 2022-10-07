@@ -32,6 +32,7 @@ export class AppDataComponent implements OnInit, OnChanges, DoCheck {
 
 
   ngOnInit(): void {
+    console.log( this._router.url.split("/")[1])
     this.getAll()
 
   }

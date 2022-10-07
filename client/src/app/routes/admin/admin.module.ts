@@ -1,3 +1,5 @@
+import { AdminService } from './../../services/admin.service';
+import { AdminTokenInterceptorService } from './../../services/admin-token-interceptor.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -31,6 +33,7 @@ import { UserDataComponent } from './components/user-data/user-data.component';
 import { SlotPageComponent } from './components/slot-page/slot-page.component';
 import { ViewApplicationComponent } from './components/view-application/view-application.component';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 @NgModule({
@@ -68,6 +71,12 @@ import { DialogComponent } from './components/dialog/dialog.component';
     MatFormFieldModule,
     MatDialogModule,
     MatTooltipModule
+  ],providers:[AdminService,
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:AdminTokenInterceptorService,
+      multi:true
+    }
   ]
 })
 export class AdminModule { }

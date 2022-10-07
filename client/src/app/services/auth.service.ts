@@ -32,5 +32,9 @@ export class AuthService {
   getToken(){
     return localStorage.getItem('token')
   }
+
+  getAdminToken(){
+    return localStorage.getItem('admin')
+  }
   
 }
